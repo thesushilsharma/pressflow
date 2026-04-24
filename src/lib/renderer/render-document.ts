@@ -37,7 +37,11 @@ function renderFeatureGrid(section: FeatureGridSection): string {
 }
 
 function renderCta(section: CtaSection): string {
-  return `<section class="cta"><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p><a href="${esc(
+  const className =
+    section.buttonVariant === "outline"
+      ? 'style="background:transparent;color:#111827;border:1px solid #111827"'
+      : "";
+  return `<section class="cta"><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p><a ${className} href="${esc(
     section.buttonHref,
   )}">${esc(section.buttonLabel)}</a></section>`;
 }
@@ -60,7 +64,7 @@ function renderTestimonial(section: TestimonialSection): string {
 function renderSection(section: PressFlowSection): string {
   switch (section.kind) {
     case "hero":
-      return `<section class="hero"><h1>${esc(section.title)}</h1><p>${esc(section.body)}</p></section>`;
+      return `<section class="hero" style="text-align:${section.alignment === "center" ? "center" : "left"}"><h1>${esc(section.title)}</h1><p>${esc(section.body)}</p></section>`;
     case "featureGrid":
       return renderFeatureGrid(section);
     case "testimonial":

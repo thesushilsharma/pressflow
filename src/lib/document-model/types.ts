@@ -26,6 +26,7 @@ export interface SlideSection extends BaseSection {
 export interface HeroSection extends BaseSection {
   kind: "hero";
   eyebrow?: string;
+  alignment?: "left" | "center";
 }
 
 export interface FeatureGridSection extends BaseSection {
@@ -44,6 +45,7 @@ export interface CtaSection extends BaseSection {
   kind: "cta";
   buttonLabel: string;
   buttonHref: string;
+  buttonVariant?: "solid" | "outline";
 }
 
 export interface LongformTextSection extends BaseSection {

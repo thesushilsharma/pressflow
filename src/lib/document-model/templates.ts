@@ -55,6 +55,7 @@ export function createDocument(mode: PressFlowMode): PressFlowDocument {
         id: crypto.randomUUID(),
         kind: "hero",
         eyebrow: "Introducing PressFlow",
+        alignment: "left",
         title: "Ship high-impact landing pages in minutes",
         body: "Write content once. PressFlow handles layout, spacing, and responsiveness.",
       },
@@ -88,6 +89,7 @@ export function createDocument(mode: PressFlowMode): PressFlowDocument {
         body: "From campaign pages to product launches, publish fast.",
         buttonLabel: "Try PressFlow",
         buttonHref: "#",
+        buttonVariant: "solid",
       },
     ];
   }
@@ -97,6 +99,7 @@ export function createDocument(mode: PressFlowMode): PressFlowDocument {
       {
         id: crypto.randomUUID(),
         kind: "hero",
+        alignment: "left",
         title: "Longform stories, beautifully structured",
         body: "Blend editorial clarity with conversion-friendly layout.",
       },
@@ -125,7 +128,13 @@ export function createSection(kind: PressFlowSectionKind): PressFlowSection {
   const id = crypto.randomUUID();
   switch (kind) {
     case "hero":
-      return { id, kind, title: "New hero", body: "Describe your value." };
+      return {
+        id,
+        kind,
+        alignment: "left",
+        title: "New hero",
+        body: "Describe your value.",
+      };
     case "featureGrid":
       return {
         id,
@@ -148,6 +157,7 @@ export function createSection(kind: PressFlowSectionKind): PressFlowSection {
         title: "Call to action",
         buttonLabel: "Get started",
         buttonHref: "#",
+        buttonVariant: "solid",
       };
     case "longformText":
       return { id, kind, markdown: "Write your section..." };
